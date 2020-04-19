@@ -43,7 +43,7 @@
 
 <script>
 import { Editor, EditorContent, EditorMenuBar } from 'tiptap'
-import { Bold, Italic, OrderedList, BulletList, ListItem, Placeholder } from 'tiptap-extensions'
+import { Bold, Italic, OrderedList, BulletList, ListItem, Link, Placeholder } from 'tiptap-extensions'
 import IconFormatBold from './icons/IconFormatBold'
 import IconFormatItalic from './icons/IconFormatItalic'
 import IconFormatListBulleted from './icons/IconFormatListBulleted'
@@ -73,6 +73,7 @@ export default {
         new OrderedList(),
         new BulletList(),
         new ListItem(),
+        new Link(),
         new Placeholder({
           emptyEditorClass: 'editor--empty',
           emptyNodeClass: 'editor__node--empty',

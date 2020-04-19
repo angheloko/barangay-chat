@@ -9,3 +9,34 @@
 .ProseMirror-focused {
   @apply outline-none bg-white border-gray-300;
 }
+
+a {
+  @apply text-blue-500 underline;
+}
+
+a:hover {
+  @apply text-blue-700;
+}
+
+p + p {
+  @apply mt-2;
+}
+
+ul,
+ol {
+  @apply pl-8 my-4;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li > p,
+li > ol,
+li > ul {
+  margin: 0;
+}
