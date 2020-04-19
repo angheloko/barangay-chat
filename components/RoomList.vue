@@ -9,7 +9,7 @@
     </div>
     <div class="fixed top-16 left-0 bottom-0 w-full">
       <div class="overflow-y-auto h-full px-4 py-4">
-        <div v-for="(room, index) in rooms" :key="index" class="mb-4 h-12 flex items-center">
+        <div v-for="(room, index) of rooms" :key="index" class="mb-4 h-12 flex items-center">
           <img alt="barangay-logo" src="https://via.placeholder.com/48" class="w-10 h-10 mr-2 rounded-full shadow">
           {{ room.name }}
           <div class="flex-grow" />
