@@ -1,6 +1,11 @@
 <template>
   <div class="editor">
-    <editor-content :editor="editor" />
+    <div class="mb-2 flex items-end">
+      <editor-content :editor="editor" class="flex-grow" />
+      <button class="rounded-full ml-2 bg-blue-500 flex p-4 items-center">
+        <icon-send class="h-4 w-4 fill-current text-white" />
+      </button>
+    </div>
     <editor-menu-bar v-slot="{ commands, isActive }" :editor="editor">
       <div class="menubar">
         <button
@@ -43,9 +48,11 @@ import IconFormatBold from './icons/IconFormatBold'
 import IconFormatItalic from './icons/IconFormatItalic'
 import IconFormatListBulleted from './icons/IconFormatListBulleted'
 import IconFormatListNumbered from './icons/IconFormatListNumbered'
+import IconSend from './icons/IconSend'
 export default {
   name: 'Editor',
   components: {
+    IconSend,
     EditorContent,
     EditorMenuBar,
     IconFormatBold,
@@ -84,7 +91,7 @@ export default {
 
 <style scoped>
 .menubar__button {
-  @apply p-2 bg-gray-200 rounded;
+  @apply p-2 mr-1 bg-gray-200 rounded;
 }
 .menubar__button:hover,
 .menubar__button--active {

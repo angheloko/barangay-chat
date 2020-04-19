@@ -1,5 +1,6 @@
 .ProseMirror {
-  @apply rounded py-3 px-4 mb-2 bg-gray-200 border border-gray-200 leading-tight outline-none;
+  @apply rounded py-3 px-4 bg-gray-200 border border-gray-200 leading-tight outline-none overflow-y-auto;
+  max-height: 200px;
 }
 .ProseMirror p.editor--empty:first-child::before {
   @apply float-left text-gray-400 h-0;
