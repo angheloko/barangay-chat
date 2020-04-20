@@ -1,13 +1,14 @@
 <template>
   <div class="h-full flex flex-col">
     <div class="h-16 flex items-center border-b  px-4">
-      <div class="inline-flex items-center">
-        <img alt="barangay-logo" src="https://via.placeholder.com/48" class="w-10 h-10 mr-2 rounded-full shadow">
+      <div>
         Barangay 1
       </div>
       <div class="flex-grow" />
-      <button class="rounded-full w-6 h-6 inline-flex items-center justify-center">
-        <icon-dots-horizontal-triple class="w-4 h-4 fill-current" />
+      <button
+        @click="isRoomInfoVisible = !isRoomInfoVisible"
+      >
+        <icon-info-outline class="w-6 h-6 fill-current" />
       </button>
     </div>
     <div class="px-4 flex-1 overflow-y-auto h-full bg-white">
@@ -21,19 +22,39 @@
     <div class="p-4 border-t border-gray-200">
       <editor />
     </div>
+    <!-- Room info -->
+    <div
+      class="fixed top-0 left-0 w-full h-full z-25 bg-white transform ease-linear duration-150"
+      :class="{'translate-x-full': !isRoomInfoVisible}"
+    >
+      <button
+        class="absolute top-5 right-5"
+        @click="isRoomInfoVisible = false"
+      >
+        <icon-close class="w-6 h-6 fill-current" />
+      </button>
+      <room-info
+        :name="'Barangay 1'"
+        class="pt-12"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-import IconDotsHorizontalTriple from './icons/IconDotsHorizontalTriple'
 import Message from './Message'
 import Editor from './Editor'
+import IconInfoOutline from './icons/IconInfoOutline'
+import RoomInfo from './RoomInfo'
+import IconClose from './icons/IconClose'
+
 export default {
   name: 'Room',
-  components: { Editor, Message, IconDotsHorizontalTriple },
+  components: { IconClose, RoomInfo, IconInfoOutline, Editor, Message },
   data () {
     return {
-      messages: []
+      messages: [],
+      isRoomInfoVisible: false
     }
   },
   mounted () {
@@ -46,7 +67,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>

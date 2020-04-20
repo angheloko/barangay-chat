@@ -10,8 +10,9 @@
     <div class="fixed top-16 left-0 bottom-0 w-full">
       <div class="overflow-y-auto h-full px-4 py-4">
         <div v-for="(room, index) of rooms" :key="index" class="mb-4 h-12 flex items-center">
-          <img alt="barangay-logo" src="https://via.placeholder.com/48" class="w-10 h-10 mr-2 rounded-full shadow">
-          {{ room.name }}
+          <div>
+            {{ room.name }}
+          </div>
           <div class="flex-grow" />
           <div v-if="room.isHome" class="inline-flex items-center justify-center shadow-sm bg-yellow-500 w-8 h-8 rounded-full">
             <icon-home class="h-4 text-white fill-current" />
