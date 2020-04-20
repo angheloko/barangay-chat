@@ -1,10 +1,9 @@
 <template>
   <div class="h-full flex flex-col">
     <div class="h-16 flex items-center border-b  px-4">
-      <div>
+      <div class="flex-grow">
         Barangay 1
       </div>
-      <div class="flex-grow" />
       <button
         @click="isRoomInfoVisible = !isRoomInfoVisible"
       >

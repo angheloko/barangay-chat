@@ -1,6 +1,5 @@
 <template>
   <div class="flex my-5">
-    <img alt="barangay-logo" src="https://via.placeholder.com/48" class="w-8 h-8 mr-2 rounded-full shadow">
     <div class="flex-grow">
       <div class="flex items-center mb-1">
         <div class="font-bold text-sm mr-2">
