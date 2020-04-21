@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center">
     <div class="absolute top-0 left-0 w-full h-full bg-gray-900 opacity-50 z-40" />
-    <div class="fixed top-0 left-0 z-40 bg-white m-4 rounded shadow">
+    <div class="z-40 bg-white m-4 rounded shadow">
       <div class="flex border-b border-gray-200 p-2">
         <h2 class="text-lg flex-grow">
           Invite people

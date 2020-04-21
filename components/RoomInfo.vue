@@ -138,7 +138,7 @@ li {
   @apply mb-2 pl-4;
 }
 .fade-enter-active, .fade-leave-active {
-  @apply transition-opacity duration-150;
+  @apply transition-opacity duration-150 ease-linear;
 }
 .fade-enter, .fade-leave-to {
   @apply opacity-0;
