@@ -4,9 +4,7 @@
       <div class="flex-grow">
         Barangay 1
       </div>
-      <button
-        @click="isRoomInfoVisible = !isRoomInfoVisible"
-      >
+      <button @click="isRoomInfoVisible = !isRoomInfoVisible">
         <icon-info-outline class="w-6 h-6 fill-current" />
       </button>
     </div>
@@ -23,7 +21,7 @@
     </div>
     <!-- Room info -->
     <div
-      class="fixed top-0 left-0 w-full h-full z-25 bg-white transform ease-linear duration-150"
+      class="fixed top-0 left-0 w-full h-full z-20 bg-white transform ease-linear duration-150"
       :class="{'translate-x-full': !isRoomInfoVisible}"
     >
       <button
