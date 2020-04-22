@@ -1,7 +1,7 @@
 <template>
   <div class="h-screen">
     <header class="fixed top-0 left-0 z-30 h-12 w-full border-b border-gray-200">
-      <div class="flex items-center h-full px-3">
+      <div class="flex h-full px-3">
         <button
           class="focus:outline-none"
           @click="isSidebarVisible = !isSidebarVisible"
@@ -9,7 +9,36 @@
           <img alt="site-logo" src="https://via.placeholder.com/48" class="w-10 h-10">
         </button>
         <div class="flex-grow" />
-        <img alt="avatar" src="https://via.placeholder.com/48" class="w-10 h-10 rounded-full">
+        <div class="relative pt-1">
+          <button
+            class="focus:outline-none w-10 h-10 rounded-full block overflow-hidden"
+            @click="isAccountMenuVisible = !isAccountMenuVisible"
+          >
+            <img alt="avatar" src="https://via.placeholder.com/48" class="w-full h-full object-cover">
+          </button>
+          <transition name="modal">
+            <div
+              v-show="isAccountMenuVisible"
+              class="absolute right-0 mt-2 py-2 w-48 bg-white rounded shadow"
+              @click="isAccountMenuVisible = false"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2"
+                @click.prevent="isSettingsVisible = true"
+              >
+                Settings
+              </a>
+              <a
+                href="#"
+                class="block px-4 py-2"
+                @click.prevent=""
+              >
+                Sign out
+              </a>
+            </div>
+          </transition>
+        </div>
       </div>
     </header>
     <main class="relative pt-12 h-full">
@@ -27,18 +56,24 @@
         </div>
       </div>
     </main>
+    <transition name="modal">
+      <settings-modal v-show="isSettingsVisible" @close="isSettingsVisible = false" />
+    </transition>
   </div>
 </template>
 
 <script>
 import RoomList from '~/components/RoomList'
 import Room from '~/components/Room'
+import SettingsModal from '~/components/SettingsModal'
 
 export default {
-  components: { Room, RoomList },
+  components: { SettingsModal, Room, RoomList },
   data () {
     return {
-      isSidebarVisible: false
+      isSidebarVisible: false,
+      isSettingsVisible: false,
+      isAccountMenuVisible: false
     }
   }
 }

@@ -40,3 +40,23 @@ li > ol,
 li > ul {
   margin: 0;
 }
+
+.form-control__label {
+  @apply block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2;
+}
+.form-control__input {
+  @apply appearance-none block w-full bg-gray-200 border border-gray-200 rounded py-3 px-4 my-2 leading-tight;
+}
+.form-control__input--rounded-full {
+  @apply rounded-full;
+}
+.form-control__input:focus {
+  @apply outline-none bg-white border-gray-300
+}
+
+.modal-enter-active, .modal-leave-active {
+  @apply transition-opacity duration-150 ease-linear;
+}
+.modal-enter, .modal-leave-to {
+  @apply opacity-0;
+}

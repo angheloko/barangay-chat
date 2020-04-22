@@ -2,7 +2,7 @@
   <div class="h-full relative bg-gray-100">
     <div class="h-16 flex items-center border-b border-gray-200 px-4">
       <input
-        class="appearance-none block w-full bg-gray-200 border border-gray-200 rounded-full py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-300"
+        class="form-control__input form-control__input--rounded-full"
         type="text"
         placeholder="Search"
       >

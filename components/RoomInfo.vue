@@ -7,26 +7,13 @@
       <p>
         Full barangay name
       </p>
-      <div class="text-center pt-4 text-xs">
-        <button
-          class="inline-flex flex-col justify-center items-center mx-4"
-          @click="showInviteUserModal = true"
-        >
-          <icon-user-add class="w-8 h-8 fill-current" />
-          Invite
-        </button>
-        <button class="inline-flex flex-col justify-center items-center mx-4">
-          <icon-share-alt class="w-8 h-8 fill-current" />
-          Share
-        </button>
-      </div>
     </section>
     <section>
       <h2>
         Members
       </h2>
       <input
-        class="appearance-none block w-full bg-gray-200 border border-gray-200 rounded-full py-3 px-4 my-2 leading-tight focus:outline-none focus:bg-white focus:border-gray-300"
+        class="form-control__input form-control__input--rounded-full"
         type="text"
         placeholder="Search"
       >
@@ -51,22 +38,11 @@
       <h2>Code of conduct</h2>
       <p>Lorem ipsum dolor...</p>
     </section>
-    <transition name="fade">
-      <invite-user-modal
-        v-show="showInviteUserModal"
-        @close="showInviteUserModal = false"
-      />
-    </transition>
   </div>
 </template>
 <script>
-import IconUserAdd from './icons/IconUserAdd'
-import InviteUserModal from './InviteUserModal'
-import IconShareAlt from './icons/IconShareAlt'
-
 export default {
   name: 'RoomInfo',
-  components: { IconShareAlt, InviteUserModal, IconUserAdd },
   props: {
     name: {
       type: String,
@@ -80,8 +56,7 @@ export default {
   data () {
     return {
       residents: [],
-      guests: [],
-      showInviteUserModal: false
+      guests: []
     }
   },
   mounted () {
@@ -114,7 +89,7 @@ section {
   @apply px-4 pb-4 mb-4 border-b border-gray-200;
 }
 section:last-child {
-  @apply border-none;
+  @apply border-b-0;
 }
 section > h2 {
   @apply text-lg;
@@ -136,11 +111,5 @@ ul {
 }
 li {
   @apply mb-2 pl-4;
-}
-.fade-enter-active, .fade-leave-active {
-  @apply transition-opacity duration-150 ease-linear;
-}
-.fade-enter, .fade-leave-to {
-  @apply opacity-0;
 }
 </style>
