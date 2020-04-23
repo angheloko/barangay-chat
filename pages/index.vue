@@ -9,35 +9,37 @@
           <img alt="site-logo" src="https://via.placeholder.com/48" class="w-10 h-10">
         </button>
         <div class="flex-grow" />
-        <div class="relative pt-1">
+        <div
+          tabindex="10"
+          class="relative pt-1 outline-none"
+          @focusout="isAccountMenuVisible = false"
+        >
           <button
             class="focus:outline-none w-10 h-10 rounded-full block overflow-hidden"
             @click="isAccountMenuVisible = !isAccountMenuVisible"
           >
             <img alt="avatar" src="https://via.placeholder.com/48" class="w-full h-full object-cover">
           </button>
-          <transition name="modal">
-            <div
-              v-show="isAccountMenuVisible"
-              class="absolute right-0 mt-2 py-2 w-48 bg-white rounded shadow"
-              @click="isAccountMenuVisible = false"
+          <div
+            v-show="isAccountMenuVisible"
+            class="absolute right-0 mt-2 py-2 w-48 bg-white rounded shadow"
+            @click="isAccountMenuVisible = false"
+          >
+            <a
+              href="#"
+              class="block px-4 py-2"
+              @click.prevent="isSettingsVisible = true"
             >
-              <a
-                href="#"
-                class="block px-4 py-2"
-                @click.prevent="isSettingsVisible = true"
-              >
-                Settings
-              </a>
-              <a
-                href="#"
-                class="block px-4 py-2"
-                @click.prevent=""
-              >
-                Sign out
-              </a>
-            </div>
-          </transition>
+              Settings
+            </a>
+            <a
+              href="#"
+              class="block px-4 py-2"
+              @click.prevent=""
+            >
+              Sign out
+            </a>
+          </div>
         </div>
       </div>
     </header>
