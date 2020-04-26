@@ -28,7 +28,9 @@ export default {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [],
+  plugins: [
+    '~/plugins/firebase'
+  ],
   /*
   ** Nuxt.js dev-modules
   */
@@ -42,7 +44,8 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/dotenv'
   ],
   /*
   ** Build configuration

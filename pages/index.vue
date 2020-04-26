@@ -10,6 +10,7 @@
         </button>
         <div class="flex-grow" />
         <div
+          v-if="user"
           tabindex="10"
           class="relative pt-1 outline-none"
           @focusout="isAccountMenuVisible = false"
@@ -18,7 +19,11 @@
             class="focus:outline-none w-10 h-10 rounded-full block overflow-hidden"
             @click="isAccountMenuVisible = !isAccountMenuVisible"
           >
-            <img alt="avatar" src="https://via.placeholder.com/48" class="w-full h-full object-cover">
+            <img
+              :src="user.photoURL"
+              alt="avatar"
+              class="w-full h-full object-cover"
+            >
           </button>
           <div
             v-show="isAccountMenuVisible"
@@ -35,7 +40,7 @@
             <a
               href="#"
               class="block px-4 py-2"
-              @click.prevent=""
+              @click.prevent="signOut"
             >
               Sign out
             </a>
@@ -44,17 +49,21 @@
       </div>
     </header>
     <main class="relative pt-12 h-full">
-      <aside class="container mx-auto px-4">
-        <div
-          :class="{'-translate-x-full': !isSidebarVisible}"
-          class="fixed top-12 bottom-0 left-0 z-20 w-full block transform ease-linear duration-150"
-        >
-          <room-list />
-        </div>
-      </aside>
-      <div class="container mx-auto h-full">
-        <div class="fixed top-12 bottom-0 left-0 w-full block transform">
-          <room />
+      <login v-if="!user" />
+      <home-setter />
+      <div v-show="false">
+        <aside class="container mx-auto px-4">
+          <div
+            :class="{'-translate-x-full': !isSidebarVisible}"
+            class="fixed top-12 bottom-0 left-0 z-20 w-full block transform ease-linear duration-150"
+          >
+            <room-list />
+          </div>
+        </aside>
+        <div class="container mx-auto h-full">
+          <div class="fixed top-12 bottom-0 left-0 w-full block transform">
+            <room />
+          </div>
         </div>
       </div>
     </main>
@@ -65,17 +74,34 @@
 </template>
 
 <script>
-import RoomList from '~/components/RoomList'
+import { mapGetters } from 'vuex'
+import Login from '~/components/Login'
 import Room from '~/components/Room'
+import RoomList from '~/components/RoomList'
 import SettingsModal from '~/components/SettingsModal'
+import HomeSetter from '~/components/HomeSetter'
 
 export default {
-  components: { SettingsModal, Room, RoomList },
+  components: { HomeSetter, Login, SettingsModal, Room, RoomList },
   data () {
     return {
       isSidebarVisible: false,
       isSettingsVisible: false,
       isAccountMenuVisible: false
+    }
+  },
+  computed: {
+    ...mapGetters({
+      user: 'user/user'
+    })
+  },
+  methods: {
+    signOut () {
+      this.$firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+      }).catch((error) => {
+        console.log('Unable to sign out user', error)
+      })
     }
   }
 }

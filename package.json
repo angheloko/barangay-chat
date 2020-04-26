@@ -12,12 +12,14 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/pwa": "^3.0.0-0",
     "firebase": "^7.14.1",
     "firebase-admin": "^8.10.0",
     "nuxt": "^2.0.0",
     "tiptap": "^1.27.0",
-    "tiptap-extensions": "^1.29.0"
+    "tiptap-extensions": "^1.29.0",
+    "vue-multiselect": "^2.1.6"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^1.0.0",
